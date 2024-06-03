@@ -29,12 +29,20 @@ export async function getCompleteOrder() {
 
   // Extracting the quantity and price from each order and returning them in a flattened array
   //flat function convert 2d array into 1 d array
-  const formattedOrders = getCompleteOrder.flat().map(({ quantity, price }) => ({ quantity, price }));
+  const formattedOrders = getCompleteOrder.flat();
+  const quantities:any = [];
+  const prices:any = [];
 
-    return formattedOrders.map( (element)=>({
-       quantity:element.quantity,
-       price:element.price
-     }))
+  //from single array we are seperating values of quantities and prices
+  formattedOrders.forEach(order=>{
+    quantities.push(order.quantity);
+    prices.push(order.price);
+  })
+
+
+
+
+  return ({quantities,prices});
 
  
     }catch(e){

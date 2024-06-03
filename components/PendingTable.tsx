@@ -9,7 +9,7 @@ const PendingOrdersTable = ({ data }:any) => {
   return (
     <div className="border p-4">
 
-      <h1 className="text-xl border-b pb-2">Completed Orders</h1>
+      <h1 className="text-xl border-b pb-2">Pending Orders</h1>
         
 
       <div className="order-container">
