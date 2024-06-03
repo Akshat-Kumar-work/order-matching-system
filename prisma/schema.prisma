@@ -12,3 +12,58 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+// model Users {
+//   id       Int      @id @default(autoincrement())
+//   password String
+//   email    String   @unique
+//   buyerId  Int?
+//   sellerId Int?
+//   buyer    Buyers?  @relation(fields: [buyerId], references: [id])
+//   seller   Sellers? @relation(fields: [sellerId], references: [id])
+// }
+
+model Buy_Orders {
+  id        Int      @id @default(autoincrement())
+  quantity  Int?
+  price     Float?
+  isPending Boolean?  @default(true)
+}
+
+model Sell_Orders {
+  id        Int      @id @default(autoincrement())
+  price     Float?
+  quantity  Int?
+  isPending Boolean?  @default(true)
+}
+
+
+//4 cases
+//buy order -> sell order dont have same price does not exist
+//check if sell order with same price pending equal to true exist
+
+// query -> to check if buy order with same price exist
+//if true -> buy order increment quantity 
+// if false => new row with price , quantity and is pending true
+
+
+//buy order -> having sell price
+// sell order  have same price with pending equal to true
+//if sell has minimum quanitity , that row into is pending false , left amount into new row or increment existing row quantity if same price
+//buy minimum
+//insert new row in completed table
+//sell order quantity decrease in incomplete , increment in completed
+
+// sell order -> having buy price
+
+// sell order -> not have same buy price
+//
+
+
+
+//1 order table
+//is selling
+//is buy
+
+//we can use web sockets for real time updates but for now we will not use due to time limits
