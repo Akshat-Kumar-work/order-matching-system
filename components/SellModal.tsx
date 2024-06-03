@@ -6,8 +6,8 @@ import { useState } from "react";
 
 const SellModal = ({ currentState, setModal }: any) => {
 
-  const [price,setPrice] = useState(null);
-  const [quantity,setQuantity] = useState(null);
+  const [price,setPrice] = useState(0);
+  const [quantity,setQuantity] = useState(0);
 
 
   if (!currentState) return null;
@@ -29,7 +29,7 @@ const SellModal = ({ currentState, setModal }: any) => {
           Price
         </label>
         <input
-         
+         onChange={(e)=>setPrice(Number(e.target.value))}
           type="text"
           id="first_name"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -40,7 +40,7 @@ const SellModal = ({ currentState, setModal }: any) => {
           Quantity
         </label>
         <input
-
+         onChange={(e)=>setQuantity(Number(e.target.value))}
           type="text"
           id="first_name"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"

@@ -5,6 +5,7 @@ import SellModal from "./SellModal";
 
 const Header = () => {
 
+
     const [buyModalState, setBuyModalState] = useState(false);
     const [sellModalState, setSellModalState] = useState(false);
 

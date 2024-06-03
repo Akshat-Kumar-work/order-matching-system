@@ -1,5 +1,14 @@
+"use client"
+import { useState } from "react";
 
 const BuyModal = ({currentState,setModal}:any) => {
+
+
+  
+  const [price,setPrice] = useState(0);
+  const [quantity,setQuantity] = useState(0);
+
+
     if (!currentState) return null;
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
@@ -18,7 +27,7 @@ const BuyModal = ({currentState,setModal}:any) => {
           Price
         </label>
         <input
-         
+         onChange={(e)=>setPrice(Number(e.target.value))}
           type="text"
           id="first_name"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -29,7 +38,7 @@ const BuyModal = ({currentState,setModal}:any) => {
           Quantity
         </label>
         <input
-
+          onChange={(e)=>setQuantity(Number(e.target.value))}
           type="text"
           id="first_name"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
