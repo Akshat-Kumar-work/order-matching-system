@@ -1,6 +1,6 @@
 "use server"
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+
+import prisma from "@/db";
 
 interface BuyOrder {
     price: number;
@@ -34,7 +34,7 @@ export async function createBuyOrder({price, quantity}:BuyOrder) {
         try{
 
             //1 check if same buy price is present in pending buy order 
-            const samePriceOrder = await prisma.buy_Orders.findFirst({
+            const samePriceBuyOrder = await prisma.buy_Orders.findFirst({
                 where:{
                     price:price,
                     isPending:true
@@ -42,11 +42,11 @@ export async function createBuyOrder({price, quantity}:BuyOrder) {
             });
 
             //if same price present in pending order, increment quantity of that order
-            if(samePriceOrder){
+            if(samePriceBuyOrder){
 
                const incrementQuantity =  await prisma.buy_Orders.update({
                     where:{
-                        id: samePriceOrder.id
+                        id: samePriceBuyOrder.id
                     },data:{
                         quantity:{
                             increment: Number(quantity)
@@ -70,13 +70,16 @@ export async function createBuyOrder({price, quantity}:BuyOrder) {
                 });
 
                 
-                //if same price present in pending seller orders
+                
                 if(samePricePendingSellerOrder){
+                    //if same price present in pending seller orders
 
-                    //2 case for completion of order
+                    //2 cases for completion of order -> when quantity and price are equal, quantity is different
                        
                     
-                }else{
+                }
+                
+                else{
                     //price is not present in pending seller order and buy order too , so create new pending buy order 
                     const data = await prisma.buy_Orders.create({
                         data:{
