@@ -34,8 +34,6 @@ import prisma from "@/db";
 
 
 
-
-
 export async function createBuyOrder(price:number, quantity:number) {
         try{
 
@@ -255,9 +253,9 @@ export async function createBuyOrder(price:number, quantity:number) {
 
                     }
 
-
-                    //if buyer quantity is more than seller quantity, buyer quant > seller quant
-                    else if (samePricePendingSellerOrder.price===price && samePricePendingSellerOrder.quantity <quantity){
+//bug
+                    //if buyer quantity is more than seller quantity,  seller quant < buyer quantity
+                     if (samePricePendingSellerOrder.price===price && samePricePendingSellerOrder.quantity <quantity){
 
 
                        const isCompletedOrderPresent =  await checkCompletedOrdersPrice(price);
@@ -282,6 +280,11 @@ export async function createBuyOrder(price:number, quantity:number) {
                                                 data:{
                                                     price:price,
                                                     quantity: Number(quantity - samePricePendingSellerOrder.quantity)
+                                                }
+                                            }),
+                                            prisma.sell_Orders.delete({
+                                                where:{
+                                                    id:samePricePendingSellerOrder.id
                                                 }
                                             })
                                     
@@ -309,6 +312,11 @@ export async function createBuyOrder(price:number, quantity:number) {
                                                     price:price,
                                                     quantity: Number(quantity - samePricePendingSellerOrder.quantity)
                                                 }
+                                            }),
+                                            prisma.sell_Orders.delete({
+                                                where:{
+                                                    id:samePricePendingSellerOrder.id
+                                                }
                                             })
                                     
                                 ]);
@@ -327,7 +335,7 @@ export async function createBuyOrder(price:number, quantity:number) {
                                 where:{
                                     id:samePricePendingSellerOrder.id
                                 },data:{
-                                    isPending:true
+                                    isPending:false
                                 }
                             }),
 
