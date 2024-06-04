@@ -14,7 +14,10 @@ const BuyModal = ({currentState,setModal}:any) => {
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
 
+      
       <div className="bg-white p-6 rounded-lg shadow-lg">
+
+      
 
       <div className="flex justify-end">
           <button onClick={() => setModal(false)} className="text-lg font-bold text-red-700">
@@ -46,13 +49,16 @@ const BuyModal = ({currentState,setModal}:any) => {
         />
 
 <div className="flex justify-center p-2">
-          <button  className="text-lg font-bold text-green-600" onClick={async()=> {await createBuyOrder(price,quantity), window.location.reload()}}>
-           Buy
+          <button  className="text-lg font-bold  border p-2 bg-gray-100 rounded-md" onClick={async()=> {await createBuyOrder(price,quantity), window.location.reload()}}>
+           Create Buy Order
           </button>
         </div>
 
    
       </div>
+
+
+
     </div>
     );
   };

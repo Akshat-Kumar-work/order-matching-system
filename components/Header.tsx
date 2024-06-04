@@ -15,12 +15,12 @@ const Header = () => {
       <div className="text-lg  flex-col justify-center font-bold hidden md:flex">Order-Exchange</div>
 
 
-      <button className=" text-lg flex  flex-col justify-center font-bold"
+      <button className=" text-lg flex  flex-col justify-center font-bold text-green-600"
        onClick={() => setBuyModalState(prevState => !prevState)}> + Buy
       </button>
 
 
-      <button className="text-lg flex  flex-col justify-center font-bold"
+      <button className="text-lg flex  flex-col justify-center font-bold text-red-800"
     onClick={() => setSellModalState(prevState => !prevState)}> - Sell 
       </button>
 
