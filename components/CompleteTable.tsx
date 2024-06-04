@@ -2,7 +2,7 @@ const CompleteOrderTable = ({ data }: any) => {
 
 
   return (
-    <div className="border-2 p-4 m-10">
+    <div className="border-2 p-4 md:m-10 m-4">
 
       <h1 className="text-xl border-b pb-2 text-center">Completed Orders Table</h1>
 
