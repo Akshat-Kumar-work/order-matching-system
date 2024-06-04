@@ -21,10 +21,10 @@ const PendingOrdersTable = ({buyPending, sellPending}:any) => {
         {/* quantity */}
           <div >
           <h2 className="text-lg font-semibold border p-2">Quantity</h2>
-          <div className=" border  p-2">
+          <div className=" border  ">
             
               {buyPending.map((order: any) => (
-              <div key={order.id}>  
+              <div className="border p-1" key={order.id}>  
                 {order.buyQuantity}
               </div>
             ))}
@@ -37,9 +37,9 @@ const PendingOrdersTable = ({buyPending, sellPending}:any) => {
               
             <h2 className="text-lg font-semibold border p-2">Price</h2>
 
-                <div  className=" border  p-2">
+                <div  className=" border ">
                  {buyPending.map((order: any) => (
-                  <div key={order.id}> 
+                  <div className="border p-1" key={order.id}> 
                     {order.buyPrice}
                   </div>
                 ))}
@@ -63,9 +63,9 @@ const PendingOrdersTable = ({buyPending, sellPending}:any) => {
             <div >
           <h2 className="text-lg font-semibold border p-2">Quantity</h2>
 
-          <div  className=" border  p-2">
+          <div  className=" border ">
                        {sellPending.map((order: any) => (
-                        <div key={order.id}> 
+                        <div className="border p-1" key={order.id}> 
                           {order.buyQuantity}
                         </div>
                       ))}
@@ -77,9 +77,9 @@ const PendingOrdersTable = ({buyPending, sellPending}:any) => {
             <div >
           <h2 className="text-lg font-semibold border p-2">Price</h2>
 
-          <div  className=" border  p-2">
+          <div  className=" border ">
                  {sellPending.map((order: any) => (
-                  <div key={order.id}> 
+                  <div className="border p-1" key={order.id}> 
                     {order.buyPrice}
                   </div>
                 ))}

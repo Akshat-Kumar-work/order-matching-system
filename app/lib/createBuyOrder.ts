@@ -2,10 +2,6 @@
 
 import prisma from "@/db";
 
-interface BuyOrder {
-    price: number;
-    quantity: number;
-  }
 
 
   //function to check if same price order is already completed or not
@@ -30,7 +26,7 @@ const checkCompletedOrdersPrice = async(price:number)=>{
     }
 }
 
-export async function createBuyOrder({price, quantity}:BuyOrder) {
+export async function createBuyOrder(price:number, quantity:number) {
         try{
 
             //1 check if same buy price is present in pending buy order 

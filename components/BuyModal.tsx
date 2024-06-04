@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react";
+import { createBuyOrder } from "@/app/lib/createBuyOrder";
 
 const BuyModal = ({currentState,setModal}:any) => {
 
@@ -45,7 +46,7 @@ const BuyModal = ({currentState,setModal}:any) => {
         />
 
 <div className="flex justify-center p-2">
-          <button  className="text-lg font-bold text-green-600">
+          <button  className="text-lg font-bold text-green-600" onClick={async()=> {await createBuyOrder(price,quantity), window.location.reload()}}>
            Buy
           </button>
         </div>

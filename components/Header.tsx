@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className="flex justify-between border-b p-4">
 
-      <div className="text-lg flex flex-col justify-center font-bold">Order-Exchange</div>
+      <div className="text-lg  flex-col justify-center font-bold hidden md:flex">Order-Exchange</div>
 
 
       <button className=" text-lg flex  flex-col justify-center font-bold"
