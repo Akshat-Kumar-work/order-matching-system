@@ -1,8 +1,8 @@
 const CompleteOrderTable = ({ data }: any) => {
-  console.log("data", data);
+
 
   return (
-    <div className="border p-4 m-10">
+    <div className="border-2 p-4 m-10">
 
       <h1 className="text-xl border-b pb-2 text-center">Completed Orders Table</h1>
 
