@@ -39,12 +39,8 @@ export async function getCompleteOrder() {
     prices.push(order.price);
   })
 
-
-
-
   return ({quantities,prices});
 
- 
     }catch(e){
         console.log("error while fetching complete order data",e)
     }
