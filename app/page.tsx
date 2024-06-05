@@ -4,7 +4,7 @@ import { getBuyPendingOrders } from "./lib/getBuyPendingOrder";
 import { getSellPendingOrders } from "./lib/getSellPendingOrder";
 import CompleteOrderTable from "@/components/CompleteTable";
 import PendingOrdersTable from "@/components/PendingTable";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+import { authOptions } from "./lib/auth";
 import { getServerSession } from "next-auth";
 import { redirect } from 'next/navigation'
 
