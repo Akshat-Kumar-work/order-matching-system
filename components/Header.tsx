@@ -21,7 +21,7 @@ const Header = () => {
 
         <button
           className="text-lg  flex-col justify-center font-bold hidden md:flex" onClick={()=> window.location.href = "/chart" }>
-          Visualize-Order-Data
+         Orders-Graph-Visualization
         </button>
 
 
