@@ -253,7 +253,7 @@ export async function createBuyOrder(price:number, quantity:number) {
 
                     }
 
-//bug
+                //bug
                     //if buyer quantity is more than seller quantity,  seller quant < buyer quantity
                      if (samePricePendingSellerOrder.price===price && samePricePendingSellerOrder.quantity <quantity){
 
@@ -381,3 +381,15 @@ export async function createBuyOrder(price:number, quantity:number) {
             console.log("error while creating buy order");
         }
     }
+
+
+    //seller selling 1000, 2000, 3000
+    // buyer wants to buy at => 5k
+    
+
+    //we can do 1 thing that get the seller amount <= 5k in descending order of price
+    //we can get the decending order by order buy query
+    //if empty order not match
+
+    //if buyer of 5k wants quantity 100 > seller quantity
+    // while loop till the quant is zero 

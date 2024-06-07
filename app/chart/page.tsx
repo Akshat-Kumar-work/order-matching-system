@@ -23,7 +23,7 @@ export default function ChartPage() {
         const sellPrices = sellPendingData?.map((order: any) => order.buyPrice);
 
         // Create labels based on buyQuantities and sellQuantities
-        const buyLabels = buyQuantities?.map((quantity: number, index: number) => ` ${index + 1}`)||[];
+        const buyLabels = buyQuantities?.map((quantity: number, index: number) => ` ${quantity}`)||[];
     
         
         // Merge the labels, avoiding duplicates
@@ -160,12 +160,16 @@ export default function ChartPage() {
             </div>
           </div>
         </div>
+
+
+      {/* graph  */}
         <div className="p-4 flex-auto">
-          
           <div className="relative h-[500px]">
             <canvas id="line-chart"></canvas>
           </div>
         </div>
+
+
       </div>
     </>
   );
